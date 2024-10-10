@@ -26,7 +26,7 @@ import matplotlib.animation as animation
 
 # TODO: Test the implementation with different values of NUM_NODES: 30, 120, 250, 300, 400 and take the cost and the time 
 # Number of nodes (modifiable)
-NUM_NODES = 400
+NUM_NODES = 30
 
 def dijkstra(graph, start, end):
     start_time = time.time()
@@ -132,7 +132,7 @@ for node in graph:
 # Use spring_layout for better node separation
 pos = nx.spring_layout(G, seed=42, k=1.5, iterations=300)  # Adjusted k and iterations for better spacing
 
-fig, ax = plt.subplots(figsize=(20, 15))  # Increased figure size for better clarity
+fig, ax = plt.subplots(figsize=(10, 7.5))  # Increased figure size for better clarity
 ax.set_facecolor('#F0F0F0')  # Set background color to a darker shade for better contrast
 
 # Draw the complete graph with color and width based on weight
@@ -167,8 +167,8 @@ nx.draw_networkx_edges(G, pos, edgelist=path_edges_dijkstra, edge_color='#FF6347
 nx.draw_networkx_edges(G, pos, edgelist=path_edges_a_star, edge_color='#32CD32', width=4, style='dashed', label='A* Path', ax=ax)  # Set width and style for A* path
 
 # Add time taken to the plot title
-plt.title(f"Path Comparison: Dijkstra vs A*  ------ Dijkstra Time: {time_dijkstra:.4f} s | A* Time: {time_a_star:.4f} s --------- Dijkstra Cost: {cost_dijkstra:.2f} | A* Cost: {cost_a_star:.2f}", fontsize=20, color='black')
-plt.legend(fontsize=12, loc='upper right', facecolor='#F0F0F0', edgecolor='black')
+plt.title(f"Path Comparison: Dijkstra vs A*  ------ Dijkstra Time: {time_dijkstra:.4f} s | A* Time: {time_a_star:.4f} s --------- Dijkstra Cost: {cost_dijkstra:.2f} | A* Cost: {cost_a_star:.2f}", fontsize=10, color='black')
+plt.legend(fontsize=6, loc='upper right', facecolor='#F0F0F0', edgecolor='black')
 
 # Animation function
 paths = {'dijkstra': path_dijkstra, 'a_star': path_a_star}
